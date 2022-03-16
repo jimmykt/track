@@ -48,7 +48,7 @@ function SignUpModel(props) {
             id={"password-confirm"}
             placeholder="Confirm Password"
           />
-          <button className="signup-model__button">Login</button>
+          <button className="signup-model__button">Sign Up</button>
         </form>
       </div>
     </div>
