@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage/HomePage.jsx";
-import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 
 import Header from "./components/Header/Header";
 function App() {
@@ -10,8 +9,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Switch>
-        <Route path="/" component={HomePage} />
-        <Route path="/login" component={LoginPage} />
+        <Route exact path="/" component={HomePage} />
       </Switch>
     </BrowserRouter>
   );
