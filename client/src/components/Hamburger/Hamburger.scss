@@ -1,0 +1,23 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
+.hamburger {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 1.875rem;
+  height: 1.3125rem;
+  @include tablet {
+    display: none;
+  }
+
+  &__line {
+    height: 0.1875rem;
+    width: 100%;
+    background-color: white;
+    border-radius: 0.625rem;
+  }
+}
