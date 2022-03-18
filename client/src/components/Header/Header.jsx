@@ -7,7 +7,6 @@ import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
 function Header() {
   const [isClick, setIsClick] = useState("dont-show-menu");
-
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [showSignUpModel, setShowSignUpModel] = useState(false);
 
@@ -59,11 +58,18 @@ function Header() {
         </div>
       </header>
       {showLoginModel ? (
-        <LoginModel onClick={toggleLoginModel} signUp={toggleSignUpModel} />
+        <LoginModel
+          toggleLoginModel={toggleLoginModel}
+          toggleSignUpModel={toggleSignUpModel}
+        />
       ) : (
         ""
       )}
-      {showSignUpModel ? <SignUpModel toggle={toggleSignUpModel} /> : ""}
+      {showSignUpModel ? (
+        <SignUpModel toggleSignUpModel={toggleSignUpModel} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
