@@ -11,8 +11,19 @@ function LoginModel(props) {
 
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log(API_USERS);
-    console.log(loginUser);
+    console.log(API_USERS + "/login");
+    if (loginUser.email && loginUser.password) {
+      axios
+        .post(API_USERS + "/login", loginUser)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      console.log("please enter password and email");
+    }
   };
 
   return (
