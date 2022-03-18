@@ -6,10 +6,9 @@ module.exports.createUser = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
 
   User.find({ email: email }, (err, foundUser) => {
-    if (err) {
-      found = false;
-      console.log(err);
-      res.send(err);
+    // checks if email exists
+    if (foundUser.length === 0) {
+      console.log("no one found");
       const hashedPassword = bcrypt.hashSync(password, 10);
       const newUser = new User({
         firstName,
@@ -25,10 +24,10 @@ module.exports.createUser = async (req, res) => {
         .catch((err) => {
           console.log(err);
         });
-      return;
+      console.log(newUser);
     } else {
-      found = true;
-      console.log("---found user --new email required");
+      console.log("Email Already In Use");
+      res.status(400).send("Email Already In Use");
     }
   });
 };
@@ -40,7 +39,7 @@ module.exports.loginUser = async (req, res) => {
     if (err) return console.log(err);
 
     const isPasswordCorrect = bcrypt.compareSync(password, foundUser.password);
-    if (!isPasswordCorrect) return res.status(400).send("Invalid password");
+    if (!isPasswordCorrect) return res.status(400).json("Invalid password");
 
     const user = {
       firstName: foundUser.firstName,
@@ -48,8 +47,16 @@ module.exports.loginUser = async (req, res) => {
       email: foundUser.email,
     };
 
-    const accessToken = jwt.sign(user, process.env.ACCESS_TOCKEN_SECRET);
+    const token = generateAccessToken(user);
 
-    res.json({ accessToken });
+    res.json({ token });
   });
 };
+
+module.exports.getLoggedUser = async (req, res) => {};
+
+function generateAccessToken(user) {
+  return jwt.sign(user, process.env.ACCESS_TOCKEN_SECRET, {
+    expiresIn: "5s",
+  });
+}

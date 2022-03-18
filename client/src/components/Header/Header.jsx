@@ -1,5 +1,5 @@
 import "./Header.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 
 import Hamburger from "../Hamburger/Hamburger";
@@ -10,6 +10,18 @@ function Header() {
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [showSignUpModel, setShowSignUpModel] = useState(false);
 
+  const [failedAuth, setFailedAuth] = useState(true);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("token");
+    console.log(token);
+    if (!token) {
+      setFailedAuth(true);
+      return;
+    }
+    setFailedAuth(false);
+  });
+
   const toggle = () => {
     if (isClick === "dont-show-menu") {
       setIsClick("show-menu");
@@ -19,10 +31,16 @@ function Header() {
   };
 
   const toggleLoginModel = () => {
-    if (showLoginModel === true) {
-      setShowLoginModel(false);
+    if (failedAuth) {
+      if (showLoginModel === true) {
+        setShowLoginModel(false);
+      } else {
+        setShowLoginModel(true);
+      }
     } else {
-      setShowLoginModel(true);
+      sessionStorage.removeItem("token");
+      setFailedAuth(true);
+      console.log("logout");
     }
   };
 
@@ -48,15 +66,17 @@ function Header() {
           <NavLink to="/" className="header__list-item">
             Track
           </NavLink>
+
           <NavLink
             to="/"
             className="header__list-item"
             onClick={toggleLoginModel}
           >
-            Login/SignUp
+            {failedAuth ? "Login/Signup" : "Logout"}
           </NavLink>
         </div>
       </header>
+
       {showLoginModel ? (
         <LoginModel
           toggleLoginModel={toggleLoginModel}
@@ -65,6 +85,7 @@ function Header() {
       ) : (
         ""
       )}
+
       {showSignUpModel ? (
         <SignUpModel toggleSignUpModel={toggleSignUpModel} />
       ) : (

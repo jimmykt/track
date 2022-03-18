@@ -9,14 +9,19 @@ function LoginModel(props) {
     password: "",
   });
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log(API_USERS + "/login");
+
     if (loginUser.email && loginUser.password) {
       axios
         .post(API_USERS + "/login", loginUser)
         .then((res) => {
-          console.log(res);
+          sessionStorage.setItem("token", res.data.token);
+          console.log(res.data.token);
+          setLoggedIn(true);
+          props.toggleLoginModel();
         })
         .catch((err) => {
           console.log(err);
