@@ -1,6 +1,6 @@
 import "./SignUpModel.scss";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { API_USERS } from "../../util/api";
 
 function SignUpModel(props) {
@@ -17,9 +17,12 @@ function SignUpModel(props) {
     if (newUser.password === newUser.confirmPassword) {
       axios
         .post(API_USERS + "/signup", newUser)
-        .then((res) => console.log(res))
-        .catch((err) => {
-          console.log(err);
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error.response.data);
+          props.toggleSignUpModel();
         });
     } else {
       console.log("password dont match");

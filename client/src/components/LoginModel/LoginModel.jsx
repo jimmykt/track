@@ -1,27 +1,28 @@
 import "./LoginModel.scss";
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { API_USERS } from "../../util/api";
+import { useDispatch } from "react-redux";
+import { login } from "../../state/actions/isLoggedActions";
 
 function LoginModel(props) {
+  const dispatch = useDispatch();
+
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
   });
 
-  const [loggedIn, setLoggedIn] = useState(false);
-
   const loginHandler = (e) => {
     e.preventDefault();
-
     if (loginUser.email && loginUser.password) {
       axios
         .post(API_USERS + "/login", loginUser)
         .then((res) => {
           sessionStorage.setItem("token", res.data.token);
           console.log(res.data.token);
-          setLoggedIn(true);
           props.toggleLoginModel();
+          dispatch(login());
         })
         .catch((err) => {
           console.log(err);

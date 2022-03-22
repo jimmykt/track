@@ -26,8 +26,8 @@ module.exports.createUser = async (req, res) => {
         });
       console.log(newUser);
     } else {
-      console.log("Email Already In Use");
-      res.status(400).send("Email Already In Use");
+      console.log("Email Already In Use!!");
+      res.status(400).json("Email Already In Use");
     }
   });
 };
@@ -47,16 +47,29 @@ module.exports.loginUser = async (req, res) => {
       email: foundUser.email,
     };
 
-    const token = generateAccessToken(user);
+    const token = jwt.sign(user, process.env.JWT_KEY, {
+      expiresIn: "24h",
+    });
 
     res.json({ token });
   });
 };
 
-module.exports.getLoggedUser = async (req, res) => {};
+module.exports.getCurrentUser = async (req, res) => {
+  if (!req.headers.authorization) {
+    return res.status(401).send("Please login");
+  }
 
-function generateAccessToken(user) {
-  return jwt.sign(user, process.env.ACCESS_TOCKEN_SECRET, {
-    expiresIn: "5s",
+  const authToken = req.headers.authorization.split(" ")[1];
+
+  jwt.verify(authToken, process.env.JWT_KEY, (err, decoded) => {
+    if (err) {
+      console.log(err);
+      return res.status(401).send("Invalid auth token");
+    }
+
+    User.findOne({ email: decoded.email }, (err, foundUser) => {
+      res.json(foundUser);
+    });
   });
-}
+};
