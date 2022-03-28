@@ -5,7 +5,7 @@ import isLoggedReducer from "./isLoggedReducer";
 
 const allReducers = combineReducers({
   User: storeUser,
-  IsLogged: isLoggedReducer,
+  isLogged: isLoggedReducer,
 });
 
 export default allReducers;

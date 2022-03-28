@@ -33,6 +33,14 @@ function HomePage() {
       });
   });
 
+  if (isLogged === false) {
+    return (
+      <main className="home">
+        <h1>Welcome to Track</h1>
+        <p className="test">Please Sign up or login</p>
+      </main>
+    );
+  }
   return (
     <main className="home">
       <h1>Welcome Back {User.firstName}</h1>

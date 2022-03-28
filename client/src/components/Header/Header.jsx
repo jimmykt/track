@@ -71,7 +71,7 @@ function Header() {
           <NavLink to="/" className="header__list-item">
             Home
           </NavLink>
-          <NavLink to="/" className="header__list-item">
+          <NavLink to="/track" className="header__list-item">
             Track
           </NavLink>
 
