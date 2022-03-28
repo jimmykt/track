@@ -41,7 +41,6 @@ function Header() {
       sessionStorage.removeItem("token");
       dispatch(isLogout());
       dispatch(logOutUser());
-      console.log("loggedout");
     }
     if (!isLogged) {
       if (showLoginModel) {
