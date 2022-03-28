@@ -3,7 +3,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { API_USERS } from "../../util/api";
 import { useDispatch } from "react-redux";
-import { login } from "../../state/actions/isLoggedActions";
+
+import { isLogin } from "../../state/actions/isLoggedActions";
 
 function LoginModel(props) {
   const dispatch = useDispatch();
@@ -20,9 +21,8 @@ function LoginModel(props) {
         .post(API_USERS + "/login", loginUser)
         .then((res) => {
           sessionStorage.setItem("token", res.data.token);
-          console.log(res.data.token);
+          dispatch(isLogin());
           props.toggleLoginModel();
-          dispatch(login());
         })
         .catch((err) => {
           console.log(err);

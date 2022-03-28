@@ -1,10 +1,10 @@
-export const login = () => {
+export const isLogin = () => {
   return {
     type: "SIGN_IN",
   };
 };
 
-export const logout = () => {
+export const isLogout = () => {
   return {
     type: "SIGN_OUT",
   };

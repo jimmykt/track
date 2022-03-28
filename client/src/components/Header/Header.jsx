@@ -1,11 +1,14 @@
 import "./Header.scss";
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
+
 import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
-import { useSelector, useDispatch } from "react-redux";
-import { login, logout } from "../../state/actions/isLoggedActions";
+
+import { storeUser, logOutUser } from "../../state/actions/userActions";
+import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 
 function Header() {
   const dispatch = useDispatch();
@@ -18,12 +21,11 @@ function Header() {
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
-    console.log(token);
     if (!token) {
-      dispatch(logout());
+      dispatch(isLogout());
       return;
     }
-    dispatch(login());
+    dispatch(isLogin());
   });
 
   const toggleHamburger = () => {
@@ -35,16 +37,19 @@ function Header() {
   };
 
   const toggleLoginModel = () => {
+    if (isLogged) {
+      sessionStorage.removeItem("token");
+      dispatch(isLogout());
+      dispatch(logOutUser());
+      console.log("loggedout");
+    }
     if (!isLogged) {
       if (showLoginModel) {
         setShowLoginModel(false);
-      } else {
+      }
+      if (!showLoginModel) {
         setShowLoginModel(true);
       }
-    } else {
-      sessionStorage.removeItem("token");
-      dispatch(logout());
-      console.log("logout");
     }
   };
 
@@ -56,7 +61,6 @@ function Header() {
       setShowLoginModel(false);
       setShowSignUpModel(true);
     }
-    console.log(showSignUpModel);
   };
 
   return (

@@ -9,11 +9,14 @@ import { storeUser } from "../../state/actions/userActions";
 function HomePage() {
   const dispatch = useDispatch();
 
-  const isLogged = useSelector((state) => state.isLogged);
   const User = useSelector((state) => state.User);
+  const isLogged = useSelector((state) => state.isLogged);
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
+    if (!token && !isLogged) {
+      return;
+    }
     axios
       .get(API_USERS + "/currentuser", {
         headers: {
@@ -21,8 +24,9 @@ function HomePage() {
         },
       })
       .then((response) => {
-        dispatch(storeUser(response.data));
-        console.log(response.data);
+        if (Object.keys(User).length === 0) {
+          dispatch(storeUser(response.data));
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -31,8 +35,7 @@ function HomePage() {
 
   return (
     <main className="home">
-      <h1>Welcome Back! {User}</h1>
-
+      <h1>Welcome Back {User.firstName}</h1>
       <p className="test">Is Logged? {isLogged ? "yes" : "no"}</p>
     </main>
   );
