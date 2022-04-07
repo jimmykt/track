@@ -14,7 +14,10 @@ app.use(express.json());
 const PORT = process.env.PORT || 5005;
 
 const usersRoutes = require("./routes/usersRoutes.js");
+const expenseRoutes = require("./routes/expenseRoutes.js");
+
 app.use("/users", usersRoutes);
+app.use("/track", expenseRoutes);
 
 mongoose
   .connect(process.env.CONNECTION_URL, {

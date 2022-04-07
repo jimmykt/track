@@ -21,6 +21,7 @@ function LoginModel(props) {
         .post(API_USERS + "/login", loginUser)
         .then((res) => {
           sessionStorage.setItem("token", res.data.token);
+          console.log(res.data);
           dispatch(isLogin());
           props.toggleLoginModel();
         })

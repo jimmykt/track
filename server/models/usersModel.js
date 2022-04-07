@@ -1,15 +1,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const expenseSchema = require("./expenseModel.js");
+
 const userSchema = new Schema(
   {
     firstName: {
       type: String,
       required: true,
     },
+
     lastName: String,
     email: String,
     password: String,
+
+    Expense: [expenseSchema],
 
     likeCount: {
       type: Number,
