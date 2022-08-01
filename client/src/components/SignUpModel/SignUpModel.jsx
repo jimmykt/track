@@ -12,6 +12,8 @@ function SignUpModel(props) {
     confirmPassword: "",
   });
 
+  const [signUpResponse, setSignUpResponse] = useState();
+
   const signUpHandler = (e) => {
     e.preventDefault();
     if (newUser.password === newUser.confirmPassword) {
@@ -20,9 +22,12 @@ function SignUpModel(props) {
         .then((res) => {
           console.log(res);
         })
-        .catch((error) => {
-          console.log(error.response.data);
+        .then(()=>{
           props.toggleSignUpModel();
+        })
+        .catch((error) => {
+          setSignUpResponse(error.response.data)
+          console.log(error.response.data);
         });
     } else {
       console.log("password dont match");
@@ -89,7 +94,7 @@ function SignUpModel(props) {
             }
           />
           <button className="signup-model__button">Sign Up</button>
-          <span className="signup-model__error"></span>
+          <span className="signup-model__response">{signUpResponse}</span>
         </form>
       </div>
     </div>

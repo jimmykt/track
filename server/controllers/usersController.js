@@ -8,7 +8,6 @@ module.exports.createUser = async (req, res) => {
   User.find({ email: email }, (err, foundUser) => {
     // checks if email exists
     if (foundUser.length === 0) {
-      console.log("no one found");
       const hashedPassword = bcrypt.hashSync(password, 10);
       const newUser = new User({
         firstName,
