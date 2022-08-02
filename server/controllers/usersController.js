@@ -50,7 +50,7 @@ module.exports.loginUser = async (req, res) => {
       expiresIn: "24h",
     });
 
-    res.json({ token });
+    res.json({ auth: true, token: token, user: user });
   });
 };
 
@@ -72,3 +72,5 @@ module.exports.getCurrentUser = async (req, res) => {
     });
   });
 };
+
+module.exports.logOutUser = async (req, res) => {};

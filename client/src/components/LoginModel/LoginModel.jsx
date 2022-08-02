@@ -1,6 +1,6 @@
 import "./LoginModel.scss";
 import axios from "axios";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { API_USERS } from "../../util/api";
 import { useDispatch } from "react-redux";
 
@@ -20,11 +20,10 @@ function LoginModel(props) {
       axios
         .post(API_USERS + "/login", loginUser)
         .then((res) => {
-          sessionStorage.setItem("token", res.data.token);
+          localStorage.setItem("token", res.data.token);
           console.log(res.data);
           dispatch(isLogin());
           props.toggleLoginModel();
-          console.log("click");
         })
         .catch((err) => {
           console.log(err);

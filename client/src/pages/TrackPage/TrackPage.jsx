@@ -3,12 +3,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { API } from "../../util/api";
 import { useSelector } from "react-redux";
-// import Expenses from "../../components/Expenses/Expenses";
+import Expenses from "../../components/Expenses/Expenses";
 
 function TrackPage() {
   const User = useSelector((state) => state.User);
-  console.log(User);
-
   const [newExpense, setNewExpense] = useState({
     name: "",
     price: "",
@@ -53,7 +51,7 @@ function TrackPage() {
         <button>Add</button>
       </form>
       <p></p>
-      {/* <Expenses /> */}
+      <Expenses />
     </main>
   );
 }

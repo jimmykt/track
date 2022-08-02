@@ -7,7 +7,7 @@ import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
 
-import { storeUser, logOutUser } from "../../state/actions/userActions";
+//import { storeUser, logOutUser } from "../../state/actions/userActions";
 import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 
 function Header() {
@@ -16,11 +16,10 @@ function Header() {
   const [isClick, setIsClick] = useState("dont-show-menu");
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [showSignUpModel, setShowSignUpModel] = useState(false);
-
   const isLogged = useSelector((state) => state.isLogged);
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (!token) {
       dispatch(isLogout());
       return;
@@ -38,9 +37,7 @@ function Header() {
 
   const toggleLoginModel = () => {
     if (isLogged) {
-      sessionStorage.removeItem("token");
-      dispatch(isLogout());
-      dispatch(logOutUser());
+      logOutUser();
     }
     if (!isLogged) {
       if (showLoginModel) {
@@ -50,6 +47,12 @@ function Header() {
         setShowLoginModel(true);
       }
     }
+  };
+
+  const logOutUser = () => {
+    localStorage.removeItem("token");
+    dispatch(isLogout());
+    dispatch(logOutUser());
   };
 
   const toggleSignUpModel = () => {

@@ -8,12 +8,11 @@ import { storeUser } from "../../state/actions/userActions";
 
 function HomePage() {
   const dispatch = useDispatch();
-
   const User = useSelector((state) => state.User);
   const isLogged = useSelector((state) => state.isLogged);
 
   useEffect(() => {
-    const token = sessionStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (!token && !isLogged) {
       return;
     }

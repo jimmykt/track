@@ -1,8 +1,10 @@
-function Expense() {
-  const User = useSelector((state) => state.User);
-  console.log(User);
-
-  return <div className="Expenses"></div>;
+function Expense({ item }) {
+  return (
+    <div className="Expenses">
+      <p>{item.expenseName}</p>
+      <p>{item.expensePrice}</p>
+    </div>
+  );
 }
 
 export default Expense;
