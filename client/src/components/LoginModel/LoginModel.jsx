@@ -1,6 +1,6 @@
 import "./LoginModel.scss";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { API_USERS } from "../../util/api";
 import { useDispatch } from "react-redux";
 
@@ -24,6 +24,7 @@ function LoginModel(props) {
           console.log(res.data);
           dispatch(isLogin());
           props.toggleLoginModel();
+          console.log("click");
         })
         .catch((err) => {
           console.log(err);
