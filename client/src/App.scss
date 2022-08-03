@@ -1,0 +1,15 @@
+@use "./styles/typography.scss";
+@use "./styles/variables" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato";
+  font-weight: 400;
+}
