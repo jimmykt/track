@@ -8,14 +8,16 @@ function Expenses() {
   const { firstName, Expense: exepenseItems } = User;
   console.log(exepenseItems);
 
-  return (
-    <div className="Expenses">
-      {firstName + "hereee"}
-      {exepenseItems.map((item) => (
-        <Expense key={item._id} item={item} />
-      ))}
-    </div>
-  );
+  if (User) {
+    return (
+      <div className="Expenses">
+        {firstName + "hereee"}
+        {exepenseItems.map((item) => (
+          <Expense key={item._id} item={item} />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default Expenses;

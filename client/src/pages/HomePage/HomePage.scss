@@ -1,5 +1,11 @@
+@use "../../styles/mixins" as *;
+@use "../../styles/variables" as *;
+
 .home {
-  padding-top: 3rem;
-  &__test {
+  padding-top: 1rem;
+  @include page-side-padding-desktop;
+
+  &__title {
+    color: #76549a;
   }
 }
