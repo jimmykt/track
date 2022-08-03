@@ -17,6 +17,8 @@ function Expenses() {
         ))}
       </div>
     );
+  } else {
+    return <div>loading</div>;
   }
 }
 

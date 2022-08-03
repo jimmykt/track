@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   &__content {
     width: 70%;
     height: 80vh;
@@ -19,6 +18,7 @@
     justify-content: center;
     position: relative;
     flex-direction: column;
+    background-color: #cee5d0;
   }
 
   &__close {

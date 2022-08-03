@@ -35,8 +35,18 @@ function HomePage() {
   if (isLogged === false) {
     return (
       <main className="home">
-        <h1 className="home__title">Welcome to Track</h1>
-        <p className="">Please Sign up or login</p>
+        <div className="home__hero">
+          <h1 className="home__title">Welcome to Track</h1>
+          <p className="home__bio">
+            an expensees tracking app that will help you manage and save
+          </p>
+          <p className="home__login">Please Sign up or Login</p>
+          <img
+            className="home__image"
+            src={require("../../assets/images/savings.png")}
+            alt="piggy bank"
+          />
+        </div>
       </main>
     );
   }

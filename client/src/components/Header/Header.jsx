@@ -7,7 +7,7 @@ import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
 
-//import { storeUser, logOutUser } from "../../state/actions/userActions";
+import { storeUser, logOutUser } from "../../state/actions/userActions";
 import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 
 function Header() {
@@ -36,8 +36,9 @@ function Header() {
   };
 
   const toggleLoginModel = () => {
+    console.log(isLogged);
     if (isLogged) {
-      logOutUser();
+      logOut();
     }
     if (!isLogged) {
       if (showLoginModel) {
@@ -49,7 +50,7 @@ function Header() {
     }
   };
 
-  const logOutUser = () => {
+  const logOut = () => {
     localStorage.removeItem("token");
     dispatch(isLogout());
     dispatch(logOutUser());
@@ -74,9 +75,20 @@ function Header() {
           <NavLink to="/" className="header__list-item">
             Home
           </NavLink>
-          <NavLink to="/track" className="header__list-item">
-            Track
-          </NavLink>
+
+          {isLogged ? (
+            <NavLink to="/track" className="header__list-item">
+              Track
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/"
+              className="header__list-item"
+              onClick={toggleLoginModel}
+            >
+              track
+            </NavLink>
+          )}
 
           <NavLink
             to="/"

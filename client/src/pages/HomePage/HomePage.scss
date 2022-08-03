@@ -3,9 +3,19 @@
 
 .home {
   padding-top: 1rem;
-  @include page-side-padding-desktop;
 
+  &__hero {
+    padding-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
   &__title {
     color: #76549a;
+  }
+
+  &__image {
+    max-width: 10rem;
   }
 }

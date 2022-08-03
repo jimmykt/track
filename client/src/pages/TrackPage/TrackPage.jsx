@@ -4,9 +4,12 @@ import axios from "axios";
 import { API } from "../../util/api";
 import { useSelector } from "react-redux";
 import Expenses from "../../components/Expenses/Expenses";
+import LoginModel from "../../components/LoginModel/LoginModel";
 
 function TrackPage() {
   const User = useSelector((state) => state.User);
+  const [showLoginModel, setShowLoginModel] = useState(false);
+
   const [newExpense, setNewExpense] = useState({
     name: "",
     price: "",
@@ -24,6 +27,10 @@ function TrackPage() {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const toggleLogin = () => {
+    setShowLoginModel(true);
   };
 
   return (
