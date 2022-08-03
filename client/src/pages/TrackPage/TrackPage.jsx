@@ -55,6 +55,11 @@ function TrackPage() {
             setNewExpense({ ...newExpense, price: e.target.value })
           }
         />
+        <select name="selectList" id="selectList">
+          <option value="Utility">Utility</option>
+          <option value="Leisure">Leisure</option>
+        </select>
+
         <button>Add</button>
       </form>
       <p></p>
