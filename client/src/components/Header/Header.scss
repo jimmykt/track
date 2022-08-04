@@ -3,6 +3,7 @@
 
 .header {
   // position: fixed;
+  @include page-side-padding-desktop;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,12 +11,8 @@
   background-color: $color-primary;
   color: #fff;
   width: 100%;
-  @include page-side-padding-mobile;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
 
   @include tablet {
-    @include page-side-padding-tablet;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }

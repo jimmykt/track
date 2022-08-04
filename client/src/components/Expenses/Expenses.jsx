@@ -1,17 +1,15 @@
 import { useSelector } from "react-redux";
 import Expense from "./Expense";
+import "./Expenses.scss";
 
 function Expenses() {
   const User = useSelector((state) => state.User);
 
-  console.log(User);
-  const { firstName, Expense: exepenseItems } = User;
-  console.log(exepenseItems);
+  const { Expense: exepenseItems } = User;
 
   if (User) {
     return (
       <div className="Expenses">
-        {firstName + "hereee"}
         {exepenseItems.map((item) => (
           <Expense key={item._id} item={item} />
         ))}

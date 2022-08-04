@@ -1,6 +1,6 @@
 import "./LoginModel.scss";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { API_USERS } from "../../util/api";
 import { useDispatch } from "react-redux";
 
@@ -13,6 +13,12 @@ function LoginModel(props) {
     email: "",
     password: "",
   });
+
+  const inputReference = useRef(null);
+
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
 
   const loginHandler = (e) => {
     e.preventDefault();
@@ -42,6 +48,7 @@ function LoginModel(props) {
         <form className="loginModel__form" onSubmit={loginHandler}>
           <input
             className="input loginModel__username"
+            ref={inputReference}
             type="text"
             name="email"
             id="email"

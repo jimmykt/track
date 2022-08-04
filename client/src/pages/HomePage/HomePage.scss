@@ -3,7 +3,7 @@
 
 .home {
   padding-top: 1rem;
-
+  @include page-side-padding-desktop;
   &__hero {
     padding-top: 5%;
     display: flex;

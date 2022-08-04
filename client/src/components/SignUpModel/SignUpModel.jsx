@@ -1,6 +1,6 @@
 import "./SignUpModel.scss";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { API_USERS } from "../../util/api";
 
 function SignUpModel(props) {
@@ -14,6 +14,12 @@ function SignUpModel(props) {
 
   const [signUpResponse, setSignUpResponse] = useState();
 
+  const inputReference = useRef(null);
+
+  useEffect(() => {
+    inputReference.current.focus();
+  }, []);
+
   const signUpHandler = (e) => {
     e.preventDefault();
     if (newUser.password === newUser.confirmPassword) {
@@ -22,11 +28,11 @@ function SignUpModel(props) {
         .then((res) => {
           console.log(res);
         })
-        .then(()=>{
+        .then(() => {
           props.toggleSignUpModel();
         })
         .catch((error) => {
-          setSignUpResponse(error.response.data)
+          setSignUpResponse(error.response.data);
           console.log(error.response.data);
         });
     } else {
@@ -44,6 +50,7 @@ function SignUpModel(props) {
         <form className="signup-model__form" onSubmit={signUpHandler}>
           <input
             className="signup-model__input"
+            ref={inputReference}
             type={"text"}
             name={"first-name"}
             id={"first-name"}
