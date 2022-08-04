@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { API, API_USERS } from "../../util/api";
 import { useSelector, useDispatch } from "react-redux";
-import Expenses from "../../components/Expenses/Expenses";
 import { storeUser } from "../../state/actions/userActions";
+import Expenses from "../../components/Expenses/Expenses";
 
 function TrackPage() {
   const User = useSelector((state) => state.User);
@@ -90,7 +90,7 @@ function TrackPage() {
 
           <button>Add</button>
         </form>
-        <p></p>
+
         <Expenses />
       </main>
     );
