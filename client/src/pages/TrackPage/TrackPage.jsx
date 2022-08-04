@@ -40,7 +40,6 @@ function TrackPage() {
   });
 
   const addExpense = (e) => {
-    e.preventDefault();
     setNewExpense({ ...newExpense, userId: User._id });
     axios
       .post(API + "/track/expense", newExpense)
@@ -54,7 +53,6 @@ function TrackPage() {
   var userArrySize = Object.keys(User).length;
 
   if (userArrySize > 0) {
-    console.log(userArrySize);
     return (
       <main className="track">
         <h1>monthly expense</h1>

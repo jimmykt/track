@@ -10,6 +10,11 @@ function Expense({ item }) {
         {item.expensePrice}
       </p>
       <p className="expense__title expense__title--type">{item.expenseType}</p>
+      <img
+        className="expense__delete-image"
+        src={require("../../assets/images/trash-can.png")}
+        alt="trash can"
+      />
     </div>
   );
 }
