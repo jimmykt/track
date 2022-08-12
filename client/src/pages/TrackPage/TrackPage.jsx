@@ -1,7 +1,7 @@
 import "./TrackPage.scss";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { API, API_USERS } from "../../util/api";
+import { API_USERS, API_TRACK } from "../../util/api";
 import { useSelector, useDispatch } from "react-redux";
 import { storeUser } from "../../state/actions/userActions";
 import Expenses from "../../components/Expenses/Expenses";
@@ -42,7 +42,7 @@ function TrackPage() {
   const addExpense = (e) => {
     setNewExpense({ ...newExpense, userId: User._id });
     axios
-      .post(API + "/track/expense", newExpense)
+      .post(API_TRACK + "/expense", newExpense)
       .then((res) => {
         console.log(res.data);
       })
@@ -50,6 +50,7 @@ function TrackPage() {
         console.log(err);
       });
   };
+
   var userArrySize = Object.keys(User).length;
 
   if (userArrySize > 0) {

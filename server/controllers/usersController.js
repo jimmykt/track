@@ -72,5 +72,3 @@ module.exports.getCurrentUser = async (req, res) => {
     });
   });
 };
-
-module.exports.logOutUser = async (req, res) => {};

@@ -16,7 +16,7 @@ function Expenses() {
           <h2 className="expenses__title expenses__title--type">Type</h2>
         </div>
         {exepenseItems.map((item) => (
-          <Expense key={item._id} item={item} />
+          <Expense key={item._id} item={item} userID={User._id} />
         ))}
       </div>
     );

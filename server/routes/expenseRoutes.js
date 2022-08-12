@@ -5,4 +5,6 @@ const controller = require("../controllers/expenseController");
 
 router.post("/expense", controller.addExpense);
 
+router.delete("/expense", controller.deleteExpense);
+
 module.exports = router;
