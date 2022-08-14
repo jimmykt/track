@@ -11,8 +11,8 @@ function Expenses() {
     return (
       <div className="expenses">
         <div className="expenses__titles">
-          <h2 className="expenses__title">Expense</h2>
-          <h2 className="expenses__title">Price</h2>
+          <h2 className="expenses__title expenses__title--name">Expense</h2>
+          <h2 className="expenses__title expenses__title--price">Price</h2>
           <h2 className="expenses__title expenses__title--type">Type</h2>
         </div>
         {exepenseItems.map((item) => (

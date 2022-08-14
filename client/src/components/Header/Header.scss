@@ -2,8 +2,7 @@
 @use "../../styles/variables" as *;
 
 .header {
-  // position: fixed;
-  @include page-side-padding-desktop;
+  @include page-side-padding-mobile;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -45,6 +44,11 @@
       width: 100%;
       text-align: center;
     }
+  }
+
+  &__title-link {
+    text-decoration: none;
+    color: inherit;
   }
 }
 

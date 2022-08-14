@@ -26,3 +26,15 @@
   padding-left: 3rem;
   padding-right: 3rem;
 }
+
+@mixin input {
+  padding: 0.5rem;
+  margin-bottom: 0.7rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  &:focus {
+    border: solid 2px #0095f6;
+  }
+}

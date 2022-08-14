@@ -3,5 +3,18 @@
 
 .track {
   padding-top: 1rem;
-  @include page-side-padding-desktop;
+  @include page-side-padding-mobile;
+  color: #94b49f;
+
+  &__title {
+    font-size: 1.5rem;
+    padding-bottom: 0.75rem;
+  }
+
+  &__form {
+    margin-bottom: 5rem;
+  }
+  &__input {
+    @include input;
+  }
 }

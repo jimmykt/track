@@ -1,7 +1,7 @@
 import "./Header.scss";
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
@@ -14,7 +14,7 @@ import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 function Header() {
   const dispatch = useDispatch();
 
-  const [isClick, setIsClick] = useState("dont-show-menu");
+  const [showHamMenu, setShowHamMenu] = useState("show-menu");
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [showSignUpModel, setShowSignUpModel] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);
@@ -29,10 +29,10 @@ function Header() {
   });
 
   const toggleHamburger = () => {
-    if (isClick === "dont-show-menu") {
-      setIsClick("show-menu");
+    if (showHamMenu === "dont-show-menu") {
+      setShowHamMenu("show-menu");
     } else {
-      setIsClick("dont-show-menu");
+      setShowHamMenu("dont-show-menu");
     }
   };
 
@@ -66,14 +66,18 @@ function Header() {
       setShowSignUpModel(true);
     }
   };
-  const [value, setValue] = useState(false);
 
   return (
     <div>
       <header className="header">
-        <h1 className="header__logo">Track</h1>
+        <h1 className="header__logo">
+          <Link className="header__title-link" to="/">
+            Track
+          </Link>
+        </h1>
         <Hamburger onClick={toggleHamburger} />
-        <div className={"header__list " + isClick}>
+
+        <div className={"header__list " + showHamMenu}>
           <NavLink to="/" className="header__list-item">
             Home
           </NavLink>

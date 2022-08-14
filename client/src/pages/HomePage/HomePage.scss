@@ -3,7 +3,7 @@
 
 .home {
   padding-top: 1rem;
-  @include page-side-padding-desktop;
+  @include page-side-padding-mobile;
 
   &__hero {
     padding-top: 5%;

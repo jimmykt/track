@@ -14,7 +14,7 @@ function TrackPage() {
   const [newExpense, setNewExpense] = useState({
     name: "",
     price: "",
-    type: "",
+    type: "Utility",
     _id: "",
   });
 
@@ -72,9 +72,10 @@ function TrackPage() {
     console.log();
     return (
       <main className="track">
-        <h1>monthly expense</h1>
-        <form onSubmit={addExpense}>
+        <h1 className="track__title">add monthley expenses</h1>
+        <form className="track__form" onSubmit={addExpense}>
           <input
+            className="track__input"
             type="text"
             name="company"
             id="company"
@@ -84,6 +85,7 @@ function TrackPage() {
             }
           />
           <input
+            className="track__input"
             type="text"
             name="price"
             id="price"
@@ -93,8 +95,10 @@ function TrackPage() {
             }
           />
           <select
+            className="track__input"
             name="selectList"
             id="selectList"
+            value="Utility"
             onChange={(e) =>
               setNewExpense({ ...newExpense, type: e.target.value })
             }
@@ -103,7 +107,7 @@ function TrackPage() {
             <option value="Leisure">Leisure</option>
           </select>
 
-          <button>Add</button>
+          <button className="track__input">Add</button>
         </form>
 
         <Expenses />

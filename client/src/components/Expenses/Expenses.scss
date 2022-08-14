@@ -4,17 +4,22 @@
   text-align: right;
   padding-top: 0.5rem;
   margin-top: 3rem;
-  width: fit-content;
 
   &__titles {
     display: flex;
     flex-direction: row;
   }
   &__title {
-    font-size: 1rem;
-    width: 4rem;
+    font-size: 1.2rem;
+    width: 6rem;
+    &--name {
+      padding-left: 10%;
+    }
+    &--price {
+      padding-left: 25%;
+    }
     &--type {
-      margin-left: 2rem;
+      padding-left: 30%;
     }
   }
 }
