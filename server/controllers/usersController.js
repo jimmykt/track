@@ -66,7 +66,6 @@ module.exports.getCurrentUser = async (req, res) => {
       console.log(err);
       return res.status(401).send("Invalid auth token");
     }
-
     User.findOne({ email: decoded.email }, (err, foundUser) => {
       res.json(foundUser);
     });

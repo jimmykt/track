@@ -14,8 +14,8 @@ function TrackPage() {
   const [newExpense, setNewExpense] = useState({
     name: "",
     price: "",
-    userId: "",
     type: "",
+    _id: "",
   });
 
   useEffect(() => {
@@ -31,29 +31,45 @@ function TrackPage() {
       })
       .then((response) => {
         if (Object.keys(User).length === 0) {
+          console.log(Object.keys(User).length);
           dispatch(storeUser(response.data));
+        }
+      })
+      .then(() => {
+        if (newExpense._id === "") {
+          console.log(User);
+          setNewExpense({ ...newExpense, _id: User._id });
         }
       })
       .catch((error) => {
         console.log(error);
+        console.log("can't find user");
       });
   });
 
+  useEffect(() => {
+    console.log("effect");
+  }, [User.Expense]);
+
   const addExpense = (e) => {
-    setNewExpense({ ...newExpense, userId: User._id });
-    axios
-      .post(API_TRACK + "/expense", newExpense)
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (User._id) {
+      axios
+        .post(API_TRACK + "/expense", newExpense)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      console.log(User._id);
+    }
   };
 
   var userArrySize = Object.keys(User).length;
 
   if (userArrySize > 0) {
+    console.log();
     return (
       <main className="track">
         <h1>monthly expense</h1>
@@ -94,7 +110,6 @@ function TrackPage() {
       </main>
     );
   } else {
-    console.log(User);
     return <div>loading</div>;
   }
 }

@@ -5,12 +5,10 @@ import { API_TRACK } from "../../util/api";
 function Expense({ item, userID }) {
   const deleteExpense = () => {
     const expenseID = item._id;
-
     const toDelete = {
       userID: userID,
       expenseID: expenseID,
     };
-
     axios
       .delete(API_TRACK + "/expense", { data: toDelete })
       .then((res) => {

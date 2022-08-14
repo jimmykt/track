@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const expenseSchema = new Schema({
   expenseName: String,
-  expensePrice: String,
+  expensePrice: Number,
   expenseType: String,
 });
 
