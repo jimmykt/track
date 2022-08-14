@@ -6,8 +6,9 @@ import { NavLink } from "react-router-dom";
 import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
+import Switch from "../Switch/Switch";
 
-import { storeUser, logOutUser } from "../../state/actions/userActions";
+import { logOutUser } from "../../state/actions/userActions";
 import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 
 function Header() {
@@ -65,6 +66,7 @@ function Header() {
       setShowSignUpModel(true);
     }
   };
+  const [value, setValue] = useState(false);
 
   return (
     <div>

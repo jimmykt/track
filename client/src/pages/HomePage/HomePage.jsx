@@ -40,7 +40,6 @@ function HomePage() {
           <p className="home__bio">
             an expensees tracking app that will help you manage and save
           </p>
-          <p className="home__login">Please Sign up or Login</p>
           <img
             className="home__image"
             src={require("../../assets/images/savings.png")}
@@ -53,7 +52,7 @@ function HomePage() {
   return (
     <main className="home">
       <h1 className="home__title">Welcome Back {User.firstName}</h1>
-      <p className="test">Is Logged? {isLogged ? "yes" : "no"}</p>
+      {/* <p className="test">Is Logged? {isLogged ? "yes" : "no"}</p> */}
     </main>
   );
 }

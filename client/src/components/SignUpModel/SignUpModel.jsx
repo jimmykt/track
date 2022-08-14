@@ -43,9 +43,12 @@ function SignUpModel(props) {
   return (
     <div className="signup-model">
       <div className="signup-model__content">
-        <p className="signup-model__close" onClick={props.toggleSignUpModel}>
-          X
-        </p>
+        <img
+          className="signup-model__close"
+          onClick={props.toggleSignUpModel}
+          src={require("../../assets/images/close-icon.png")}
+          alt="piggy bank"
+        />
 
         <form className="signup-model__form" onSubmit={signUpHandler}>
           <input
