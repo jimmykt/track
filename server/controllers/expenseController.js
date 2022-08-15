@@ -1,5 +1,4 @@
 const User = require("../models/usersModel");
-const expense = require("../models/expenseModel");
 
 module.exports.addExpense = async (req, res) => {
   const { name, price, type, _id } = req.body;
@@ -15,7 +14,7 @@ module.exports.addExpense = async (req, res) => {
     },
     {
       $addToSet: {
-        Expense: {
+        Expenses: {
           expenseName: name,
           expensePrice: price,
           expenseType: type,
@@ -31,7 +30,7 @@ module.exports.deleteExpense = async (req, res) => {
     {
       _id: userID,
     },
-    { $pull: { Expense: { _id: expenseID } } }
+    { $pull: { Expenses: { _id: expenseID } } }
   );
 
   res.json({ Deleted: userID });

@@ -1,9 +1,6 @@
 .expenses {
   display: flex;
   flex-direction: column;
-  text-align: right;
-  padding-top: 0.5rem;
-  margin-top: 3rem;
 
   &__titles {
     display: flex;
@@ -11,15 +8,12 @@
   }
   &__title {
     font-size: 1.2rem;
-    width: 6rem;
     &--name {
-      padding-left: 10%;
     }
     &--price {
       padding-left: 25%;
     }
     &--type {
-      padding-left: 30%;
     }
   }
 }

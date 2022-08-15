@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const expenseSchema = require("./expenseModel.js");
+const expensesSchema = require("./expenseModel.js");
 
 const userSchema = new Schema(
   {
@@ -14,16 +14,11 @@ const userSchema = new Schema(
     email: String,
     password: String,
 
-    Expense: [expenseSchema],
+    Expenses: [expensesSchema],
 
     likeCount: {
       type: Number,
       default: 0,
-    },
-
-    createdAt: {
-      type: Date,
-      default: new Date(),
     },
   },
   { timestamps: true }
