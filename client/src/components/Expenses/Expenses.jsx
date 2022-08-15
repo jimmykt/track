@@ -5,13 +5,13 @@ import "./Expenses.scss";
 function Expenses() {
   const User = useSelector((state) => state.User);
 
-  const { Expense: exepenseItems } = User;
+  const { Expenses: exepenseItems } = User;
 
   if (User) {
     return (
       <div className="expenses">
         <div className="expenses__titles">
-          <h2 className="expenses__title expenses__title--name">Expense</h2>
+          <h2 className="expenses__title ">Expense</h2>
           <h2 className="expenses__title expenses__title--price">Price</h2>
           <h2 className="expenses__title expenses__title--type">Type</h2>
         </div>

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const expensesSchema = require("./expenseModel.js");
+const expenseSchema = require("./expenseModel.js");
 
 const userSchema = new Schema(
   {
@@ -14,7 +14,7 @@ const userSchema = new Schema(
     email: String,
     password: String,
 
-    Expenses: [expensesSchema],
+    Expenses: [expenseSchema],
 
     likeCount: {
       type: Number,
