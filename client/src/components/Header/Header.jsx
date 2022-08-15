@@ -14,7 +14,7 @@ import { isLogout, isLogin } from "../../state/actions/isLoggedActions";
 function Header() {
   const dispatch = useDispatch();
 
-  const [showHamMenu, setShowHamMenu] = useState("show-menu");
+  const [showHamMenu, setShowHamMenu] = useState("dont-show-menu");
   const [showLoginModel, setShowLoginModel] = useState(false);
   const [showSignUpModel, setShowSignUpModel] = useState(false);
   const isLogged = useSelector((state) => state.isLogged);

@@ -1,6 +1,5 @@
 import "./Expense.scss";
 import React, { useState } from "react";
-
 import axios from "axios";
 import { API_TRACK } from "../../util/api";
 
@@ -16,21 +15,21 @@ function Expense({ item, userID }) {
       .then((res) => {
         console.log(res.data);
       })
+      .then(() => {
+        window.location.reload(false);
+      })
       .catch((err) => {
         console.log(err);
       });
   };
-  const [showMore, setShowMore] = useState(0);
 
+  const [showMore, setShowMore] = useState(0);
   const shoreMoreClicked = () => {
     setShowMore(!showMore);
-    console.log(item.expenseName + "" + item);
-    console.log(item);
   };
 
   return (
     <div>
-      <div></div>
       <div className="expense" onClick={shoreMoreClicked}>
         <p className="expense__title expense__title--expense">
           {item.expenseName}
@@ -41,8 +40,11 @@ function Expense({ item, userID }) {
         <p className="expense__title expense__title--type">
           {item.expenseType}
         </p>
+      </div>
+      <div className={showMore ? "showMore" : "dontShow"}>
+        <p className="showMore__createdAt"> added on: {item.createdAt}</p>
         <img
-          className="expense__delete-image"
+          className="showMore__trash-can-img"
           src={require("../../assets/images/trash-can.png")}
           alt="trash can"
           onClick={deleteExpense}

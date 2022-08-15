@@ -68,8 +68,51 @@ function TrackPage() {
 
   var userArrySize = Object.keys(User).length;
 
+  const addDefaultData = () => {
+    const data = [
+      {
+        name: "Netflix",
+        price: "19.99",
+        type: "Leisure",
+        _id: User._id,
+      },
+      {
+        name: "Spotify",
+        price: "16.50",
+        type: "Leisure",
+        _id: User._id,
+      },
+      {
+        name: "Phone",
+        price: "65.50",
+        type: "Utility",
+        _id: User._id,
+      },
+      {
+        name: "Home Internet",
+        price: "152.99",
+        type: "Utility",
+        _id: User._id,
+      },
+    ];
+
+    console.log(data);
+
+    data.forEach((item) => {
+      axios
+        .post(API_TRACK + "/expense", item)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
+  };
+
   if (userArrySize > 0) {
     console.log();
+    // addDefaultData();
     return (
       <main className="track">
         <h1 className="track__title">add monthley expenses</h1>
