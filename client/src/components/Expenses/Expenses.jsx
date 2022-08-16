@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import React, { useState, useEffect } from "react";
 
 import Expense from "./Expense";
+import ExpensesTotals from "./ExpensesTotals";
 
 function Expenses() {
   const User = useSelector((state) => state.User);
@@ -14,9 +15,6 @@ function Expenses() {
   useEffect(() => {});
 
   if (User) {
-    console.log(User);
-
-    console.log(Expenses);
     return (
       <div className="expenses">
         <div className="expenses__titles">
@@ -27,6 +25,7 @@ function Expenses() {
         {exepenseItems.map((item) => (
           <Expense key={item._id} item={item} userID={User._id} />
         ))}
+        <ExpensesTotals />
       </div>
     );
   } else {

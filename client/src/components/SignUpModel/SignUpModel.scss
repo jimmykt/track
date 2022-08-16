@@ -48,6 +48,9 @@
     padding-left: 0.75rem;
     border-radius: 1rem;
     @include tablet {
+      width: 50%;
+    }
+    @include desktop {
       width: 25%;
     }
   }

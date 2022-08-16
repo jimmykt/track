@@ -31,13 +31,11 @@ function TrackPage() {
       })
       .then((response) => {
         if (Object.keys(User).length === 0) {
-          console.log(Object.keys(User).length);
           dispatch(storeUser(response.data));
         }
       })
       .then(() => {
         if (newExpense._id === "") {
-          console.log(User);
           setNewExpense({ ...newExpense, _id: User._id });
         }
       })
@@ -48,7 +46,9 @@ function TrackPage() {
   });
 
   const addExpense = (e) => {
-    if (User._id) {
+    e.preventDefault();
+
+    if (User._id && !isNaN(newExpense.price)) {
       axios
         .post(API_TRACK + "/expense", newExpense)
         .then((res) => {
@@ -59,6 +59,7 @@ function TrackPage() {
         });
     } else {
       console.log(User._id);
+      console.log("number for price please");
     }
   };
 

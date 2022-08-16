@@ -58,7 +58,7 @@
     border-radius: 1.25rem;
     padding: 0.4rem;
     @include tablet {
-      width: 15%;
+      width: 25%;
     }
   }
   &__signup {
@@ -80,6 +80,9 @@
     border: solid 2px #0095f6;
   }
   @include tablet {
+    width: 50%;
+  }
+  @include desktop {
     width: 25%;
   }
 }

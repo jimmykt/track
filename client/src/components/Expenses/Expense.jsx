@@ -16,7 +16,7 @@ function Expense({ item, userID }) {
         console.log(res.data);
       })
       .then(() => {
-        // window.location.reload(false);
+        window.location.reload(false);
       })
       .catch((err) => {
         console.log(err);
