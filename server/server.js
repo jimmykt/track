@@ -19,6 +19,10 @@ const expenseRoutes = require("./routes/expenseRoutes.js");
 app.use("/users", usersRoutes);
 app.use("/track", expenseRoutes);
 
+app.get("/", (req, res) => {
+  res.send("welcome to track");
+});
+
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
