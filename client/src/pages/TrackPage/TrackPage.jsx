@@ -46,8 +46,6 @@ function TrackPage() {
   });
 
   const addExpense = (e) => {
-    e.preventDefault();
-
     if (User._id && !isNaN(newExpense.price)) {
       axios
         .post(API_TRACK + "/expense", newExpense)

@@ -16,5 +16,11 @@
   }
   &__input {
     @include input;
+    @include tablet {
+      width: 50%;
+    }
+    @include desktop {
+      width: 25%;
+    }
   }
 }
