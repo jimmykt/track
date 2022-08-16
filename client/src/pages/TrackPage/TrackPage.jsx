@@ -47,10 +47,6 @@ function TrackPage() {
       });
   });
 
-  useEffect(() => {
-    console.log("effect");
-  }, [User.Expense]);
-
   const addExpense = (e) => {
     if (User._id) {
       axios

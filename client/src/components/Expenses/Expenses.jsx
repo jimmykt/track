@@ -1,13 +1,22 @@
-import { useSelector } from "react-redux";
-import Expense from "./Expense";
 import "./Expenses.scss";
+
+import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+
+import Expense from "./Expense";
 
 function Expenses() {
   const User = useSelector((state) => state.User);
-
   const { Expenses: exepenseItems } = User;
 
+  const [Expenses, setExpenses] = useState();
+
+  useEffect(() => {});
+
   if (User) {
+    console.log(User);
+
+    console.log(Expenses);
     return (
       <div className="expenses">
         <div className="expenses__titles">
