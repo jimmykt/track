@@ -25,7 +25,7 @@ module.exports.createUser = async (req, res) => {
         });
       console.log(newUser);
     } else {
-      console.log("Email Already In Use!!");
+      console.log("Email Already In Use");
       res.status(400).json("Email Already In Use");
     }
   });

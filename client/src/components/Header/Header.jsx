@@ -37,7 +37,6 @@ function Header() {
   };
 
   const toggleLoginModel = () => {
-    console.log(isLogged);
     if (isLogged) {
       logOut();
     }

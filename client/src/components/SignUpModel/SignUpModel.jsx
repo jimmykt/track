@@ -2,8 +2,12 @@ import "./SignUpModel.scss";
 import axios from "axios";
 import React, { useState, useEffect, useRef } from "react";
 import { API_USERS } from "../../util/api";
+import { useDispatch } from "react-redux";
+import { isLogin } from "../../state/actions/isLoggedActions";
 
 function SignUpModel(props) {
+  const dispatch = useDispatch();
+
   const [newUser, setNewUser] = useState({
     firstName: "",
     lastName: "",
@@ -26,10 +30,24 @@ function SignUpModel(props) {
       axios
         .post(API_USERS + "/signup", newUser)
         .then((res) => {
-          console.log(res);
+          props.toggleSignUpModel();
         })
         .then(() => {
-          props.toggleSignUpModel();
+          const loginUser = {
+            email: newUser.email,
+            password: newUser.password,
+          };
+          axios
+            .post(API_USERS + "/login", loginUser)
+            .then((res) => {
+              localStorage.setItem("token", res.data.token);
+              console.log(res.data);
+              dispatch(isLogin());
+              props.toggleLoginModel();
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         })
         .catch((error) => {
           setSignUpResponse(error.response.data);

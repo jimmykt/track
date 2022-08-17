@@ -67,18 +67,18 @@ function TrackPage() {
     const data = [
       {
         name: "Netflix",
-        price: "19.99",
+        price: "18.63",
         type: "Leisure",
         _id: User._id,
       },
       {
         name: "Spotify",
-        price: "16.50",
+        price: "18.07",
         type: "Leisure",
         _id: User._id,
       },
       {
-        name: "Phone",
+        name: "Phone Plan",
         price: "65.50",
         type: "Utility",
         _id: User._id,
@@ -86,6 +86,18 @@ function TrackPage() {
       {
         name: "Home Internet",
         price: "152.99",
+        type: "Utility",
+        _id: User._id,
+      },
+      {
+        name: "Pizza",
+        price: "24.50",
+        type: "Leisure",
+        _id: User._id,
+      },
+      {
+        name: "Hyrdo",
+        price: "150",
         type: "Utility",
         _id: User._id,
       },

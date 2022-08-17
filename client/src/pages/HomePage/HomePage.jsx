@@ -51,7 +51,8 @@ function HomePage() {
   }
   return (
     <main className="home">
-      <h1 className="home__title">Welcome Back {User.firstName}</h1>
+      <h1 className="home__title">Hi, {User.firstName}</h1>
+      <h2 className="home__title">ready to add something?</h2>
       {/* <p className="test">Is Logged? {isLogged ? "yes" : "no"}</p> */}
     </main>
   );
