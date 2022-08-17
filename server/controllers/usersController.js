@@ -35,22 +35,27 @@ module.exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   User.findOne({ email: email }, (err, foundUser) => {
-    if (err) return console.log(err);
+    if (!foundUser) {
+      return res.status(400).json("Invalid Username");
+    } else {
+      const isPasswordCorrect = bcrypt.compareSync(
+        password,
+        foundUser.password
+      );
+      if (!isPasswordCorrect) return res.status(400).json("Invalid password");
 
-    const isPasswordCorrect = bcrypt.compareSync(password, foundUser.password);
-    if (!isPasswordCorrect) return res.status(400).json("Invalid password");
+      const user = {
+        firstName: foundUser.firstName,
+        lastName: foundUser.lastName,
+        email: foundUser.email,
+      };
 
-    const user = {
-      firstName: foundUser.firstName,
-      lastName: foundUser.lastName,
-      email: foundUser.email,
-    };
+      const token = jwt.sign(user, process.env.JWT_KEY, {
+        expiresIn: "24h",
+      });
 
-    const token = jwt.sign(user, process.env.JWT_KEY, {
-      expiresIn: "24h",
-    });
-
-    res.json({ auth: true, token: token, user: user });
+      res.json({ auth: true, token: token, user: user });
+    }
   });
 };
 

@@ -61,8 +61,6 @@ function TrackPage() {
     }
   };
 
-  var userArrySize = Object.keys(User).length;
-
   const addDefaultData = () => {
     const data = [
       {
@@ -101,6 +99,12 @@ function TrackPage() {
         type: "Utility",
         _id: User._id,
       },
+      {
+        name: "Dinner with friends",
+        price: "42.50",
+        type: "Leisure",
+        _id: User._id,
+      },
     ];
 
     console.log(data);
@@ -117,6 +121,36 @@ function TrackPage() {
     });
   };
 
+  // sortByCategory = (category, contactInfo) => {
+  //   // Set To Ascending
+  //   if (this.state.ascendingSort || null) {
+  //     this.setState({
+  //       ascendingSort: false,
+  //     });
+
+  //     const ascendingWarehouses = this.state.warehouses;
+  //     ascendingWarehouses.sort(sortAscending(category, contactInfo));
+
+  //     this.setState({
+  //       warehouses: ascendingWarehouses,
+  //     });
+  //   }
+  //   // Set To Descending
+  //   if (!this.state.ascendingSort) {
+  //     this.setState({
+  //       ascendingSort: true,
+  //     });
+
+  //     const descendingWareHouses = this.state.warehouses;
+  //     descendingWareHouses.sort(sortDescending(category, contactInfo));
+
+  //     this.setState({
+  //       warehouses: descendingWareHouses,
+  //     });
+  //   }
+  // };
+
+  var userArrySize = Object.keys(User).length;
   if (userArrySize > 0) {
     console.log();
     // addDefaultData();

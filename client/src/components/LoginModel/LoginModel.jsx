@@ -33,9 +33,9 @@ function LoginModel(props) {
         })
         .catch((err) => {
           console.log(err);
+          console.log("please enter password and email");
         });
     } else {
-      console.log("please enter password and email");
     }
   };
 
@@ -78,6 +78,7 @@ function LoginModel(props) {
               setLoginUser({ ...loginUser, password: e.target.value })
             }
           />
+          <p></p>
           <button className="loginModel__login-button">Login</button>
           <p className="loginModel__signup" onClick={props.toggleSignUpModel}>
             SignUp
