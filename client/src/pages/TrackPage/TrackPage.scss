@@ -3,7 +3,7 @@
 
 .track {
   padding-top: 1rem;
-  @include page-side-padding-mobile;
+  @include page-side-padding-desktop;
   color: #94b49f;
 
   &__title {
@@ -22,5 +22,10 @@
     @include desktop {
       width: 25%;
     }
+  }
+
+  &__testData {
+    @include input;
+    width: fit-content;
   }
 }

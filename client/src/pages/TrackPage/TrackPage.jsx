@@ -1,8 +1,9 @@
 import "./TrackPage.scss";
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { API_USERS, API_TRACK } from "../../util/api";
 import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+
+import { API_USERS, API_TRACK } from "../../util/api";
 import { storeUser } from "../../state/actions/userActions";
 import Expenses from "../../components/Expenses/Expenses";
 
@@ -105,6 +106,12 @@ function TrackPage() {
         type: "Leisure",
         _id: User._id,
       },
+      {
+        name: "Car Gas",
+        price: "75.88",
+        type: "Utility",
+        _id: User._id,
+      },
     ];
 
     console.log(data);
@@ -151,9 +158,8 @@ function TrackPage() {
   // };
 
   var userArrySize = Object.keys(User).length;
+
   if (userArrySize > 0) {
-    console.log();
-    // addDefaultData();
     return (
       <main className="track">
         <h1 className="track__title">add monthley expenses</h1>
@@ -192,6 +198,9 @@ function TrackPage() {
           </select>
 
           <button className="track__input">Add</button>
+          <button className="track__testData" onClick={addDefaultData}>
+            add Test Data
+          </button>
         </form>
 
         <Expenses />
