@@ -207,7 +207,7 @@ function TrackPage() {
       </main>
     );
   } else {
-    return <div>loading</div>;
+    return <div>loading....</div>;
   }
 }
 

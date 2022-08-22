@@ -28,6 +28,13 @@ function Expense({ item, userID }) {
     setShowMore(!showMore);
   };
 
+  const convertDate = () => {
+    const d = new Date(item.createdAt);
+    let date =
+      " " + d.toDateString() + "," + d.getHours() + ":" + d.getMinutes();
+    return date;
+  };
+
   return (
     <div>
       <div className="expense" onClick={shoreMoreClicked}>
@@ -42,7 +49,7 @@ function Expense({ item, userID }) {
         </p>
       </div>
       <div className={showMore ? "showMore" : "dontShow"}>
-        <p className="showMore__createdAt"> added on: {item.createdAt}</p>
+        <p className="showMore__createdAt"> added on: {convertDate()}</p>
         <img
           className="showMore__trash-can-img"
           src={require("../../assets/images/trash-can.png")}
