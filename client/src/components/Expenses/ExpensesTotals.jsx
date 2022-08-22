@@ -12,11 +12,31 @@ function ExpensesTotals() {
     return Total;
   };
 
-  const totalUtilityExpense = () => {};
+  const totalLeisure = () => {
+    let Total = 0;
+    User.Expenses.forEach((expense) => {
+      if (expense.expenseType == "Leisure") {
+        Total = Total + expense.expensePrice;
+      }
+    });
+    return Total;
+  };
+
+  const totalUtility = () => {
+    let Total = 0;
+    User.Expenses.forEach((expense) => {
+      if (expense.expenseType == "Utility") {
+        Total = Total + expense.expensePrice;
+      }
+    });
+    return Total;
+  };
 
   return (
-    <div>
-      <p>total expense: {totalEpense()}</p>
+    <div className="ExpensesTotals">
+      <p className="ExpensesTotals__total">total Leisure: {totalUtility()}</p>
+      <p className="ExpensesTotals__total">total Utility: {totalLeisure()}</p>
+      <p className="ExpensesTotals__total">total expense: {totalEpense()}</p>
     </div>
   );
 }

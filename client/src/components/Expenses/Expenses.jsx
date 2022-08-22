@@ -14,10 +14,6 @@ function Expenses() {
   });
   const [sort, setSort] = useState(false);
 
-  useEffect(() => {
-    console.log(Expenses);
-  });
-
   useEffect(() => {});
 
   const sortByName = () => {

@@ -6,7 +6,6 @@ import { Link, NavLink } from "react-router-dom";
 import Hamburger from "../Hamburger/Hamburger";
 import LoginModel from "../LoginModel/LoginModel";
 import SignUpModel from "../SignUpModel/SignUpModel";
-import Switch from "../Switch/Switch";
 
 import { logOutUser } from "../../state/actions/userActions";
 import { isLogout, isLogin } from "../../state/actions/isLoggedActions";

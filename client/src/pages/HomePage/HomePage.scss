@@ -12,10 +12,12 @@
     align-items: center;
     flex-direction: column;
   }
+
   &__title {
     color: #94b49f;
     margin-top: 1rem;
   }
+
   &__bio {
     font-style: italic;
     color: #375843;
@@ -24,7 +26,23 @@
     padding-right: 4rem;
   }
 
+  &__image-container {
+    background-color: white;
+    margin-top: 1rem;
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+  }
+
   &__image {
-    max-width: 10rem;
+    width: 10rem;
+  }
+
+  &__login {
+    cursor: pointer;
+    margin-top: 2rem;
+    color: #0095f6;
+    font-size: 1.4rem;
   }
 }

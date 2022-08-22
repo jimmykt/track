@@ -37,14 +37,16 @@ function HomePage() {
       <main className="home">
         <div className="home__hero">
           <h1 className="home__title">Welcome to Track</h1>
-          <p className="home__bio">
+          <h2 className="home__bio">
             an expensees tracking app that will help you manage and save
-          </p>
-          <img
-            className="home__image"
-            src={require("../../assets/images/savings.png")}
-            alt="piggy bank"
-          />
+          </h2>
+          <div className="home__image-container">
+            <img
+              className="home__image"
+              src={require("../../assets/images/savings.png")}
+              alt="piggy bank"
+            />
+          </div>
         </div>
       </main>
     );
@@ -53,7 +55,6 @@ function HomePage() {
     <main className="home">
       <h1 className="home__title">Hi, {User.firstName}</h1>
       <h2 className="home__title">ready to add something?</h2>
-      {/* <p className="test">Is Logged? {isLogged ? "yes" : "no"}</p> */}
     </main>
   );
 }

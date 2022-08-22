@@ -47,6 +47,7 @@ function TrackPage() {
   });
 
   const addExpense = (e) => {
+    e.preventDefault();
     if (User._id && !isNaN(newExpense.price)) {
       axios
         .post(API_TRACK + "/expense", newExpense)
@@ -62,8 +63,15 @@ function TrackPage() {
     }
   };
 
-  const addDefaultData = () => {
+  const addDefaultData = (e) => {
     const data = [
+      {
+        name: "Car Gas",
+        price: "75.89",
+        type: "Utility",
+        _id: User._id,
+      },
+
       {
         name: "Netflix",
         price: "18.63",
@@ -101,20 +109,24 @@ function TrackPage() {
         _id: User._id,
       },
       {
-        name: "Dinner with friends",
-        price: "42.50",
+        name: "Dinner with Friends",
+        price: "38.50",
         type: "Leisure",
-        _id: User._id,
-      },
-      {
-        name: "Car Gas",
-        price: "75.88",
-        type: "Utility",
         _id: User._id,
       },
     ];
 
-    console.log(data);
+    // console.log(data.length);
+    // for (let i = 0; i < data.length; i++) {
+    //   axios
+    //     .post(API_TRACK + "/expense", data[i])
+    //     .then((res) => {
+    //       console.log(res.data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // }
 
     data.forEach((item) => {
       axios
@@ -127,35 +139,6 @@ function TrackPage() {
         });
     });
   };
-
-  // sortByCategory = (category, contactInfo) => {
-  //   // Set To Ascending
-  //   if (this.state.ascendingSort || null) {
-  //     this.setState({
-  //       ascendingSort: false,
-  //     });
-
-  //     const ascendingWarehouses = this.state.warehouses;
-  //     ascendingWarehouses.sort(sortAscending(category, contactInfo));
-
-  //     this.setState({
-  //       warehouses: ascendingWarehouses,
-  //     });
-  //   }
-  //   // Set To Descending
-  //   if (!this.state.ascendingSort) {
-  //     this.setState({
-  //       ascendingSort: true,
-  //     });
-
-  //     const descendingWareHouses = this.state.warehouses;
-  //     descendingWareHouses.sort(sortDescending(category, contactInfo));
-
-  //     this.setState({
-  //       warehouses: descendingWareHouses,
-  //     });
-  //   }
-  // };
 
   var userArrySize = Object.keys(User).length;
 
