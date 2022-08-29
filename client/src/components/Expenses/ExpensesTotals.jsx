@@ -34,6 +34,7 @@ function ExpensesTotals() {
 
   return (
     <div className="ExpensesTotals">
+      <h2 className="ExpensesTotals__title">totals: </h2>
       <p className="ExpensesTotals__total">total Leisure: {totalUtility()}</p>
       <p className="ExpensesTotals__total">total Utility: {totalLeisure()}</p>
       <p className="ExpensesTotals__total">total expense: {totalEpense()}</p>
