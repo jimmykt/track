@@ -9,7 +9,7 @@ function ExpensesTotals() {
     User.Expenses.forEach((expense) => {
       Total = Total + expense.expensePrice;
     });
-    return Total;
+    return Total.toFixed(2);
   };
 
   const totalLeisure = () => {
@@ -19,7 +19,7 @@ function ExpensesTotals() {
         Total = Total + expense.expensePrice;
       }
     });
-    return Total;
+    return Total.toFixed(2);
   };
 
   const totalUtility = () => {
@@ -29,7 +29,7 @@ function ExpensesTotals() {
         Total = Total + expense.expensePrice;
       }
     });
-    return Total;
+    return Total.toFixed(2);
   };
 
   return (
