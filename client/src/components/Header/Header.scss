@@ -36,7 +36,7 @@
     text-decoration: none;
     color: $color-secondary;
     &:hover {
-      background-color: #3a586485;
+      background-color: #375843;
     }
     @include tablet {
       width: 100%;
@@ -58,7 +58,7 @@
   padding: 1rem;
   flex-direction: column;
   list-style-type: none;
-  background-color: $color-primary;
+  background-color: #212224;
   border-bottom-left-radius: 0.5rem;
   @include tablet {
     position: relative;

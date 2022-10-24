@@ -42,20 +42,17 @@ function LoginModel(props) {
   return (
     <div className="loginModel">
       <div className="loginModel__content">
-        {/* <p className="loginModel__close" onClick={props.toggleLoginModel}>
-          X
-        </p> */}
         <img
           className="loginModel__close"
           onClick={props.toggleLoginModel}
           src={require("../../assets/images/close-icon.png")}
           alt="piggy bank"
         />
-        <img
+        {/* <img
           className="loginModel__image"
           src={require("../../assets/images/savings.png")}
           alt="piggy bank"
-        />
+        /> */}
         <form className="loginModel__form" onSubmit={loginHandler}>
           <input
             className="input loginModel__username"

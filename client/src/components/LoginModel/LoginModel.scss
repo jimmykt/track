@@ -4,7 +4,8 @@
 .loginModel {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
+  // background-color: $background;
   position: absolute;
   top: 0;
   display: flex;
@@ -22,7 +23,7 @@
     justify-content: center;
     position: relative;
     flex-direction: column;
-    background-color: #cee5d0;
+    background-color: rgba(33, 34, 36, 0);
     padding-bottom: 10rem;
   }
 
@@ -76,6 +77,8 @@
   width: 100%;
   border-radius: 1.2rem;
   padding-left: 1rem;
+  outline: none;
+
   &:focus {
     border: solid 2px #0095f6;
   }

@@ -92,6 +92,8 @@ function Expenses() {
   if (User) {
     return (
       <div className="expenses">
+        <ExpensesTotals />
+
         <div className="expenses__titles">
           <div className="expenses__title-container">
             <h2 className="expenses__title ">Expense</h2>
@@ -124,7 +126,6 @@ function Expenses() {
         {Expenses.map((item) => (
           <Expense key={item._id} item={item} userID={User._id} />
         ))}
-        <ExpensesTotals />
       </div>
     );
   } else {

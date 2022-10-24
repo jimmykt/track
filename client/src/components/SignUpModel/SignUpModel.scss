@@ -4,7 +4,7 @@
 .signup-model {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 0;
   display: flex;
@@ -19,7 +19,7 @@
     text-align: center;
     padding: 2rem;
     position: relative;
-    background-color: #cee5d0;
+    background-color: rgba(33, 34, 36, 0);
     padding-top: 5rem;
   }
 
@@ -47,6 +47,11 @@
     padding: 0.5rem;
     padding-left: 0.75rem;
     border-radius: 1rem;
+    outline: none;
+
+    &:focus {
+      border: solid 2px #0095f6;
+    }
     @include tablet {
       width: 50%;
     }

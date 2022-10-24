@@ -5,26 +5,24 @@
   display: flex;
   flex-direction: column;
   @include page-side-padding-desktop;
+
   &__titles {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    border-bottom: 1px solid yellow;
   }
   &__title {
     font-size: 1.5rem;
-
-    &--name {
-    }
     &--price {
       margin-left: 3rem;
-    }
-    &--type {
     }
   }
 
   &__title-container {
     display: flex;
   }
+
   &__sort {
     width: 1rem;
     height: 1rem;
