@@ -46,6 +46,20 @@ function TrackPage() {
       });
   });
 
+  const [isNumber, setIsNumber] = useState(true);
+  const numberCheck = (e) => {
+    if (!isNaN(e.target.value)) {
+      setIsNumber(true);
+      console.log("number");
+      setNewExpense({ ...newExpense, price: e.target.value });
+    }
+    if (isNaN(e.target.value)) {
+      console.log("not number");
+      console.log(newExpense.price);
+      setIsNumber(false);
+    }
+  };
+
   const addExpense = (e) => {
     if (User._id && !isNaN(newExpense.price)) {
       axios
@@ -145,14 +159,14 @@ function TrackPage() {
             }
           />
           <input
-            className="track__input"
+            className={
+              isNumber ? "track__input" : "track__input track__invalid-input"
+            }
             type="text"
             name="price"
             id="price"
             placeholder="Price"
-            onChange={(e) =>
-              setNewExpense({ ...newExpense, price: e.target.value })
-            }
+            onChange={(e) => numberCheck(e)}
           />
           <select
             className="track__input"

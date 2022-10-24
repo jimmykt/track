@@ -15,7 +15,9 @@
   &__form {
     margin-bottom: 5rem;
   }
+
   &__input {
+    outline: none;
     @include input;
     @include tablet {
       width: 50%;
@@ -23,6 +25,10 @@
     @include desktop {
       width: 25%;
     }
+  }
+
+  &__invalid-input {
+    border-color: red;
   }
 
   &__testData {
